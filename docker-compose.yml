@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - ANONIMIZER_PATH=/anonimizer
+    volumes:
+      - /tmp/anonimizer-web:/tmp/anonimizer-web
+    restart: unless-stopped

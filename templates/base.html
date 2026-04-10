@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anonimizer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='htmx.min.js') }}" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">Anonimizer</a>
+      <span class="tagline">Deel kennis, bescherm privacy — EU-soeverein</span>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Open source &middot;
+      <a href="https://github.com/security-commons-nl/anonimizer-web" target="_blank" rel="noopener">GitHub</a>
+      &middot; Gebouwd voor <a href="https://github.com/security-commons-nl" target="_blank" rel="noopener">security-commons-nl</a>
+    </p>
+  </footer>
+</body>
+</html>

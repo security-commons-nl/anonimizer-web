@@ -1,0 +1,44 @@
+<div class="entiteit-card" id="entiteit-card">
+  <div class="progress">
+    <span class="progress-label">{{ index }} van {{ totaal }}</span>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: {{ (index / totaal * 100)|int }}%"></div>
+    </div>
+  </div>
+
+  <div class="entiteit-info">
+    <span class="badge badge-{{ entiteit.categorie|lower }}">{{ entiteit.categorie }}</span>
+    <h3 class="entiteit-tekst">&ldquo;{{ entiteit.tekst }}&rdquo;</h3>
+  </div>
+
+  <form hx-post="/besluit" hx-target="#review-area" hx-swap="innerHTML" class="besluit-form">
+    <input type="hidden" name="suggestie" value="{{ entiteit.suggestie }}">
+
+    <div class="field">
+      <label>Suggestie van AI</label>
+      <div class="suggestie-preview">{{ entiteit.suggestie }}</div>
+    </div>
+
+    <div class="field">
+      <label for="vervanging">Of jouw eigen vervanging</label>
+      <input type="text" id="vervanging" name="vervanging"
+             placeholder="{{ entiteit.suggestie }}" autocomplete="off">
+    </div>
+
+    <div class="acties">
+      <button type="submit" name="actie" value="bevestig" class="btn btn-primary">
+        Akkoord met suggestie
+      </button>
+      <button type="submit" name="actie" value="eigen" class="btn btn-secondary">
+        Gebruik eigen tekst
+      </button>
+      <button type="submit" name="actie" value="overslaan" class="btn btn-ghost">
+        Overslaan
+      </button>
+      <button type="submit" name="actie" value="stop" class="btn btn-ghost btn-stop"
+              onclick="return confirm('Resterende entiteiten overslaan en doorgaan naar download?')">
+        Stop &amp; download
+      </button>
+    </div>
+  </form>
+</div>

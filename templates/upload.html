@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+  <h2>Document anonimiseren</h2>
+  <p class="intro">
+    Upload een document. De tool verwijdert automatisch persoonsgegevens en organisatienamen
+    via AI-suggesties die jij per stuk bevestigt of aanpast.
+  </p>
+
+  {% if fout %}
+  <div class="alert alert-error">{{ fout }}</div>
+  {% endif %}
+
+  <form method="post" action="/verwerk" enctype="multipart/form-data" class="upload-form">
+
+    <div class="field">
+      <label for="bestand">Document</label>
+      <input type="file" id="bestand" name="bestand" required
+             accept=".pdf,.docx,.pptx,.xlsx,.md,.txt,.html,.htm">
+      <small>Ondersteund: PDF, Word, PowerPoint, Excel, Markdown, HTML, TXT (max 50 MB)</small>
+    </div>
+
+    <div class="field">
+      <label for="api_key">Mistral API-sleutel</label>
+      <input type="password" id="api_key" name="api_key" required
+             placeholder="Bijv. aBcDeFg...">
+      <small>
+        Nog geen sleutel?
+        <a href="https://console.mistral.ai/" target="_blank" rel="noopener">Maak er gratis één aan</a>.
+        De sleutel wordt nooit opgeslagen op de server.
+      </small>
+    </div>
+
+    <details class="field">
+      <summary>Standaard-vervangingen (optioneel)</summary>
+      <textarea id="standaard" name="standaard" rows="8" placeholder="vervangingen:
+  &quot;Gemeente Leiden&quot;: VOORBEELDGEMEENTE
+  &quot;Holland Rijnland&quot;: VOORBEELDREGIO"></textarea>
+      <small>YAML-formaat. Worden automatisch en stil toegepast, geen prompt per keer.</small>
+    </details>
+
+    <button type="submit" class="btn btn-primary">Verwerken &rarr;</button>
+  </form>
+</div>
+
+<div class="info-grid">
+  <div class="info-block">
+    <h3>Hoe het werkt</h3>
+    <ol>
+      <li>Upload je document</li>
+      <li>AI detecteert namen, e-mails, organisaties</li>
+      <li>Jij bevestigt of past aan — per entiteit</li>
+      <li>Download het geanonimiseerde document (.md + .html)</li>
+    </ol>
+  </div>
+  <div class="info-block">
+    <h3>Privacy</h3>
+    <ul>
+      <li>API-sleutel alleen in je sessie (cookie), nooit bewaard</li>
+      <li>Document verwijderd na download</li>
+      <li>Geen logging van documentinhoud</li>
+      <li>AI via Mistral EU-API — data blijft in Europa</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

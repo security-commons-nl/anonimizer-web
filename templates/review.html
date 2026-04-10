@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+  <div class="review-header">
+    <h2>Entiteiten reviewen</h2>
+    {% if auto_count %}
+    <p class="auto-info">
+      <strong>{{ auto_count }}</strong> vervangingen al automatisch toegepast.
+    </p>
+    {% endif %}
+  </div>
+
+  <div id="review-area">
+    {% include "_entiteit_partial.html" %}
+  </div>
+</div>
+
+{% endblock %}
