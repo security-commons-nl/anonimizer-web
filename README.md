@@ -72,6 +72,9 @@ Ga naar [http://localhost:5000](http://localhost:5000)
 
 ## Meer documentatie
 
+- [Gebruik](docs/gebruik.md) — stap-voor-stap voor CISO's en eindgebruikers
+- [Architectuur](docs/architectuur.md) — hoe het gebouwd is en waarom
+- [Configuratie](docs/configuratie.md) — omgevingsvariabelen en productie-setup
 - [Roadmap](ROADMAP.md)
 - [anonimizer CLI](https://github.com/security-commons-nl/anonimizer)
 
