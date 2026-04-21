@@ -1,14 +1,32 @@
 # Bijdragen aan anonimizer-web
 
-Bedankt voor je interesse. Deze repo volgt de organisatiebrede richtlijnen van security-commons-nl:
+Iets delen of verbeteren? Drie manieren, van makkelijk naar technisch.
 
-- [CONTRIBUTING.md (org-wide)](https://github.com/security-commons-nl/.github/blob/main/CONTRIBUTING.md)
-- [DOCUMENTATION-STANDARD.md](https://github.com/security-commons-nl/.github/blob/main/DOCUMENTATION-STANDARD.md)
-- [PRINCIPLES.md](https://github.com/security-commons-nl/.github/blob/main/PRINCIPLES.md)
+## 1. Iets aanbieden of melden — geen Git-ervaring nodig
 
-## Project-specifieke werkwijze
+→ [**Bijdrage aanbieden**](https://github.com/security-commons-nl/anonimizer-web/issues/new?template=bijdrage-aanbieden.md)
+  Een idee of feedback over de web-UI.
 
-### Lokaal draaien
+→ [**Fout of verbetering**](https://github.com/security-commons-nl/anonimizer-web/issues/new?template=fout-of-verbetering.md)
+  Iets klopt niet, kan beter, of mist.
+
+Vul alleen de vragen in die voor jou relevant zijn — we helpen je met de rest.
+
+**Geen GitHub-account?** [Maak er gratis een](https://github.com/signup) (2 minuten), of vraag iemand in je netwerk om namens jou te posten.
+
+## 2. Meediscussiëren
+
+→ [**Discussions**](https://github.com/orgs/security-commons-nl/discussions)
+
+Voor vragen, ervaringen en ideeën zonder directe actie.
+
+## 3. Voor ontwikkelaars — code aanleveren
+
+### Relatie met anonimizer-CLI
+
+Deze web-UI is een Flask-wrapper rond de [anonimizer CLI](https://github.com/security-commons-nl/anonimizer). Kern-detectielogica (regex, LLM, allowlist, anafoor) leeft daar. **Issues over detectiekwaliteit horen in die repo.**
+
+### Lokale setup
 
 ```bash
 pip install -r requirements.txt
@@ -17,11 +35,11 @@ cp .env.example .env
 python app.py
 ```
 
-### Relatie met anonimizer-CLI
-
-Deze web-UI is een Flask-wrapper rond de [anonimizer CLI](https://github.com/security-commons-nl/anonimizer). Kern-detectielogica (regex-laag, LLM, allowlist, anafoor) leeft daar. Issues over detectiekwaliteit horen in die repo.
-
 ### PRs
 
 - UI-wijzigingen: voeg screenshot of screencast toe aan de PR-beschrijving
-- Backend-wijzigingen: update `docs/architectuur.md` als request-flow verandert
+- Backend-wijzigingen: update `docs/architectuur.md` als de request-flow verandert
+
+---
+
+**Organisatiebrede richtlijnen**: [security-commons-nl/.github](https://github.com/security-commons-nl/.github/blob/main/CONTRIBUTING.md)
