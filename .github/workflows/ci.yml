@@ -7,21 +7,18 @@ on:
     branches: [main]
 
 jobs:
-  lint-and-syntax:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+  # Python-syntax- en install-check via herbruikbare workflow.
+  # test-command doet een py_compile want er zijn (nog) geen pytest-tests.
+  tests:
+    uses: security-commons-nl/.github/.github/workflows/python-ci.yml@main
+    with:
+      python-version: "3.12"
+      test-command: "python -m py_compile app.py"
+      install-extras: ""
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Syntax check
-        run: python -m py_compile app.py
+  docs:
+    uses: security-commons-nl/.github/.github/workflows/doc-compliance.yml@main
+    with:
+      require-gebruik: false
+      require-architectuur: false
+      require-configuratie: false
