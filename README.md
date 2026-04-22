@@ -2,6 +2,11 @@
 
 > Browser-gebaseerde UI voor de anonimizer — verwijder persoonsgegevens uit documenten zonder Python-kennis.
 
+
+[![Bijdragen](https://img.shields.io/badge/📝_Bijdragen-Open_een_bericht-238636?style=for-the-badge)](../../issues/new/choose) [![Discussions](https://img.shields.io/badge/💬_Discussions-Meepraten-0969da?style=for-the-badge)](../../discussions)
+
+👉 **Iets delen, feedback geven of een vraag stellen?** Klik op een van de knoppen hierboven — geen Git-ervaring nodig. Zie [CONTRIBUTING.md](CONTRIBUTING.md) voor meer opties.
+
 Gebouwd voor CISO's en ISO's die documenten willen anonimiseren voordat ze ze delen via de [kennisbank](https://github.com/security-commons-nl/kennisbank). Zelfde interactieve flow als de [anonimizer CLI](https://github.com/security-commons-nl/anonimizer), maar in de browser.
 
 ---
