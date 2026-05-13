@@ -1,7 +1,12 @@
 name: Dependabot auto-merge
 
-# Auto-merge patch + minor dependency updates from Dependabot once CI is green.
-# Major bumps blijven handmatig — review en mergen via GitHub UI.
+# Auto-merge ALLEEN patch-bumps van Dependabot zodra CI groen is.
+# Minor en major bumps blijven handmatig — review en mergen via GitHub UI.
+#
+# Reden voor patch-only: web-app verwerkt documenten met persoonsgegevens
+# in-memory. Minor-bumps kunnen nieuwe code-paden introduceren; patch-only
+# beperkt het oppervlak tot bugfixes binnen bestaande API. Cooldown van
+# 7 dagen (zie dependabot.yml) vangt snel-ontdekte supply-chain attacks.
 
 on: pull_request
 
@@ -22,14 +27,14 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Approve PR
-        if: steps.meta.outputs.update-type == 'version-update:semver-patch' || steps.meta.outputs.update-type == 'version-update:semver-minor'
+        if: steps.meta.outputs.update-type == 'version-update:semver-patch'
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Enable auto-merge
-        if: steps.meta.outputs.update-type == 'version-update:semver-patch' || steps.meta.outputs.update-type == 'version-update:semver-minor'
+        if: steps.meta.outputs.update-type == 'version-update:semver-patch'
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}

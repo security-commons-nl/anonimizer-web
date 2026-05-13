@@ -3,6 +3,8 @@ __pycache__/
 *.pyc
 *.pyo
 .pytest_cache/
+.venv*/
+venv/
 
 # AI-tooling (lokaal per ontwikkelaar, niet delen)
 .claude/

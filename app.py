@@ -84,9 +84,9 @@ def verwerk():
         return render_template("upload.html",
                                fout="Bestand en API-sleutel zijn verplicht.")
 
-    # API key instellen voor LLM-aanroepen (single-worker deployment)
+    # API key alleen in het worker-proces (env), nooit in de session-store
+    # op disk. Single-worker deployment: zie --workers 1 in de Dockerfile.
     os.environ["AI_API_KEY"] = api_key
-    session["api_key"] = api_key
 
     # Upload tijdelijk opslaan
     suffix = pathlib.Path(bestand.filename).suffix.lower()

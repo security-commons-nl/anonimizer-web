@@ -62,9 +62,10 @@ anonimizer-web/
 
 Flask-Session slaat sessies op als bestanden in `/tmp/anonimizer-web/sessions/`. In de sessie-cookie staat alleen een sessie-ID. De sessie bevat:
 
+De API-key staat **niet** in de sessie (die zou via Flask-Session naar disk worden geserialiseerd). Hij wordt alleen in `os.environ["AI_API_KEY"]` van het worker-proces gezet voor de duur van de `/verwerk`-request. Daarna is hij weg. Vereist `--workers 1` in productie zodat workers elkaars env niet zien.
+
 | Sleutel | Inhoud |
 |---|---|
-| `api_key` | Mistral API key (alleen in sessie, nooit op disk als los bestand) |
 | `tekst_sid` | UUID — verwijst naar tijdelijk tekstbestand in `/tmp/anonimizer-web/` |
 | `entities` | Lijst van nog te reviewen entiteiten |
 | `confirmed` | Dict van bevestigde vervangingen `{origineel: vervanging}` |
