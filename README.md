@@ -1,11 +1,17 @@
-# anonimizer-web
+# anonimizer-web — gearchiveerd
+
+> [!WARNING]
+> **Dit project is gearchiveerd.** Gebruik in plaats hiervan
+> **[anonimizer-browser](https://github.com/security-commons-nl/anonimizer-browser)**
+> — dezelfde functionaliteit, maar volledig in de browser, zonder Docker,
+> server of verwerkersrol.
+>
+> Live: https://security-commons-nl.github.io/anonimizer-browser/
+>
+> Deze repo blijft leesbaar voor wie 'm al draait; er komen geen nieuwe
+> features en alleen kritische security-fixes worden nog overwogen.
 
 > Browser-gebaseerde UI voor de anonimizer — verwijder persoonsgegevens uit documenten zonder Python-kennis.
-
-
-[![Bijdragen](https://img.shields.io/badge/📝_Bijdragen-238636?style=for-the-badge)](../../issues/new/choose)&nbsp;&nbsp;&nbsp;&nbsp;[![Meepraten](https://img.shields.io/badge/💬_Meepraten-0969da?style=for-the-badge)](../../discussions)
-
-👉 **Iets delen, feedback geven of een vraag stellen?** Klik op een van de knoppen hierboven — geen Git-ervaring nodig. Zie [CONTRIBUTING.md](CONTRIBUTING.md) voor meer opties.
 
 Gebouwd voor CISO's en ISO's die documenten willen anonimiseren voordat ze ze delen via de [kennisbank](https://github.com/security-commons-nl/kennisbank). Zelfde interactieve flow als de [anonimizer CLI](https://github.com/security-commons-nl/anonimizer), maar in de browser.
 
